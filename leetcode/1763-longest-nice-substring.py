@@ -1,8 +1,9 @@
 """
-@complexity:
+@complexity
 time: O(n)
 space: O(n)
 """
+
 
 class Solution(object):
     def lengthOfLongestSubstring(self, s):
