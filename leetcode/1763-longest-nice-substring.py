@@ -1,28 +1,33 @@
 """
 @complexity
-time: O(n)
+time: O(n^3)
 space: O(n)
+*using sliding window -> O(n^3)
+*divide&conquer -> O(nlogn)
 """
 
-
 class Solution(object):
-    def lengthOfLongestSubstring(self, s):
+    def isNice(self, s):
+        uniqueChars = set(s)
+        for char in uniqueChars:
+            if char.lower() not in uniqueChars or char.upper() not in uniqueChars:
+                return False
+
+        return True
+
+    def longestNiceSubstring(self, s):
         """
         :type s: str
-        :rtype: int
+        :rtype: str
         """
 
-        l = 0
-        longest = 0
-        seen = set()
-        for r in range(len(s)):
-            while s[r] in seen:
-                seen.remove(s[l])
-                l += 1
-
-            windowSize = (r - l) + 1
-            longest = max(longest, windowSize)
-
-            seen.add(s[r])
+        longest = ""
+        for left in range(len(s)):
+            chars = set()
+            for right in range(left, len(s)):
+                chars.add(s[right])
+                if self.isNice(chars):
+                    if right - left + 1 > len(longest):
+                        longest = s[left:right + 1]
 
         return longest
