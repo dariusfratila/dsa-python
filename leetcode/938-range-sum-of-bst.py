@@ -15,9 +15,9 @@ class Solution:
                 if low <= node.val <= high:
                     total_sum += node.val
 
-                if node.left:
+                if node.left and low <= node.val:
                     deq.append(node.left)
-                if node.right:
+                if node.right and high >= node.val:
                     deq.append(node.right)
 
         return total_sum
