@@ -6,22 +6,21 @@ space: O(n)
 
 
 class Solution:
-    def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
-        min_difference = float('inf')
-        prev = None
+    def findTilt(self, root: Optional[TreeNode]) -> int:
+        self.total_tilt = 0
 
-        def dfs(node):
-            nonlocal min_difference, prev
+        def postorder(node):
             if not node:
-                return
+                return 0
 
-            dfs(node.left)
+            left_sum = postorder(node.left)
+            right_sum = postorder(node.right)
 
-            if prev is not None:
-                min_difference = min(min_difference, abs(node.val - prev))
-            prev = node.val
+            tilt = abs(left_sum - right_sum)
 
-            dfs(node.right)
+            self.total_tilt += tilt
 
-        dfs(root)
-        return min_difference
+            return node.val + left_sum + right_sum
+
+        postorder(root)
+        return self.total_tilt
