@@ -36,6 +36,39 @@ class Solution(object):
 
         # ----
 
+        # binary search + sort
+
+        # left, right = 0, len(arr) - 1
+
+        # while left < right:
+        #     middle = (left + right) // 2
+        #     if arr[middle] >= x:
+        #         right = middle
+        #     else:
+        #         left = middle + 1
+
+        # left_pointer, right_pointer = left - 1, left
+
+        # result = []
+        # while len(result) < k:
+        #     if left_pointer < 0:
+        #         result.append(arr[right_pointer])
+        #         right_pointer += 1
+        #     elif right_pointer >= len(arr):
+        #         result.append(arr[left_pointer])
+        #         left_pointer -= 1
+        #     else:
+        #         if abs(arr[left_pointer] - x) <= abs(arr[right_pointer] - x):
+        #             result.append(arr[left_pointer])
+        #             left_pointer -= 1
+        #         else:
+        #             result.append(arr[right_pointer])
+        #             right_pointer += 1
+
+        # return sorted(result)
+
+        # ---
+
         # two pointers
 
         l, r = 0, len(arr) - 1
