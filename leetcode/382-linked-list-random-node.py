@@ -4,6 +4,7 @@ time: O(n)
 space: O(1)
 """
 
+import random
 
 class Solution(object):
 

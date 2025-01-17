@@ -21,7 +21,7 @@ class Solution:
 
         print(slow.val)
         # invert elements from second half
-        prev, current = None, slow.nexts
+        prev, current = None, slow.next
         while current:
             tmp = current.next
             print(f'tmp:{tmp}')

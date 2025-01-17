@@ -1,7 +1,7 @@
 """
 @complexity
 time: O(n)
-space: O(n)
+space: O(h)
 """
 
 

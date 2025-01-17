@@ -12,10 +12,10 @@ class Solution(object):
         :rtype: Optional[ListNode]
         """
 
-        if not head or not head.next:
-            return None
+        dummy = ListNode(0)
+        dummy.next = head
 
-        prev = None
+        prev = dummy
         slow, fast = head, head
         while fast and fast.next:
             prev = slow
@@ -24,4 +24,4 @@ class Solution(object):
 
         prev.next = slow.next
 
-        return head
+        return dummy.next
